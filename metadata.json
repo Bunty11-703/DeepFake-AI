@@ -1,0 +1,8 @@
+{
+  "name": "Real Time – Deepfake Verifier",
+  "description": "Real-time deepfake audio and video verification system with AI-generated explanations.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

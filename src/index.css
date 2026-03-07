@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-zinc-100 antialiased selection:bg-emerald-500/30;
+    background-image: 
+      radial-gradient(circle at 50% -20%, #10b98115 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, #10b98105 0%, transparent 40%);
+  }
+}
+
+.glass {
+  @apply bg-zinc-900/40 backdrop-blur-md border border-white/5 shadow-2xl;
+}
+
+.glass-emerald {
+  @apply bg-emerald-500/5 backdrop-blur-md border border-emerald-500/10 shadow-[0_0_30px_rgba(16,185,129,0.05)];
+}
+
+.risk-high {
+  @apply text-red-500 bg-red-500/5 border-red-500/20 shadow-[0_0_20px_rgba(239,68,68,0.05)];
+}
+
+.risk-medium {
+  @apply text-yellow-500 bg-yellow-500/5 border-yellow-500/20 shadow-[0_0_20px_rgba(234,179,8,0.05)];
+}
+
+.risk-low {
+  @apply text-emerald-500 bg-emerald-500/5 border-emerald-500/20 shadow-[0_0_20px_rgba(16,185,129,0.05)];
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 0.5; }
+  90% { opacity: 0.5; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+.scan-line {
+  animation: scan 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.tech-grid {
+  background-size: 30px 30px;
+  background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+}
+
+.corner-bracket {
+  @apply absolute w-4 h-4 border-emerald-500/30;
+}
+
+.corner-tl { @apply top-4 left-4 border-t-2 border-l-2 rounded-tl-sm; }
+.corner-tr { @apply top-4 right-4 border-t-2 border-r-2 rounded-tr-sm; }
+.corner-bl { @apply bottom-4 left-4 border-b-2 border-l-2 rounded-bl-sm; }
+.corner-br { @apply bottom-4 right-4 border-b-2 border-r-2 rounded-br-sm; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+}
